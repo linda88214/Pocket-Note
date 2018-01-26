@@ -1,0 +1,19 @@
+{
+  "name": "pocket-note",
+  "version": "1.0.0",
+  "description": "Name of your app - Pocket Note",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linda88214/Pocket-Note.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linda88214/Pocket-Note/issues"
+  },
+  "homepage": "https://github.com/linda88214/Pocket-Note#readme"
+}
