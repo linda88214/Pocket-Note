@@ -46,6 +46,11 @@ When the user is not signed in, they only can check today's weather on the login
 - Note area
 - Save Button
 
+##### Priority
+1. Weather 
+2. Todo List
+3. Note
+
 ###### Friday:
 - Proposal
 - Wireframe 
@@ -53,7 +58,6 @@ When the user is not signed in, they only can check today's weather on the login
 - Setup basic structure
 - Start with making directories and files 
 - Require all npm packages 
-- Create a database and tables 
 
 ###### Saturday-Sunday:
 - Work on routes, models etc
@@ -80,6 +84,8 @@ When the user is not signed in, they only can check today's weather on the login
 [Cookie-parser](https://www.npmjs.com/package/cookie-parser)
 [Express-session](https://www.npmjs.com/package/express-session)
 [Pg-promise](https://www.npmjs.com/package/pg-promise)
+[Moment.js](https://www.npmjs.com/package/moment)
+
 
 #### Technology I intend to use - 
 HTML, CSS, JavaScript, jQuery, Node.js, SQL, Ajax/Axios, Pg-promise, Express, Mustache 
