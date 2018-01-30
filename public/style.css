@@ -16,6 +16,7 @@
 
 html {
   background-image: url("./images/background.jpg");
+  background-size: 100% 100%;
 }
 
 body {
@@ -247,18 +248,44 @@ span {
 /************************ LISTS PAGE ***************************/
 /***************************************************************/
 
-#listsPage div {
+.lists-container {
   float: left;
-  width: 30%;
-  margin: 20px;
+  width: 20%;
+  height: 200px;
+  margin-top: 20px;
+  margin-left: 2%;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 40px;
+  border-bottom: none !important;
+  line-height: 20px;
+  position: relative;
+}
+
+.lists-container ul {
+  height: 45px;
+  position: absolute;
+  right: 30px;
+  bottom: 5px;
+}
+
+.lists-container li {
+  padding: 10px;
+}
+
+.lists-container a {
+  font-size: 15px;
+  font-family: Rudiment;
 }
 
 #listsPage h2 {
   font-size: 25px;
+  margin: 20px;
 }
 
 #listsPage h4 {
   font-size: 20px;
+  margin: 20px;
 }
 
 #listsPage p {

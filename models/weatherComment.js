@@ -32,11 +32,11 @@ weatherComment.findById = (req, res, next) => {
 weatherComment.create = (req, res, next) => {
   db
     .one(
-      "INSERT INTO weather (zip, weather, commentDay, comment) VALUES ($1, $2, $3, $4) RETURNING id;",
+      "INSERT INTO weather (zip, weather, commentday, comment) VALUES ($1, $2, $3, $4) RETURNING id;",
       [
         req.body.zip,
         req.body.weather,
-        req.body.commentDay,
+        req.body.commentday,
         req.body.comment
       ]
     )

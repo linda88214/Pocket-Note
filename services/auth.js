@@ -56,6 +56,7 @@ passport.use(
     new LocalStrategy({
             // these are the names of the fields for email and password in
             // the login form we'll be serving (see the view)
+            firstnameField: 'user[fname]',
             usernameField: 'user[email]',
             passwordField: 'user[password]',
             passReqToCallback: true
@@ -84,9 +85,12 @@ passport.use(
             passReqToCallback: true
         },
         (req, email, password, done) => {
+            
             User
                 .findByEmail(email) // Returns a promise!
                 .then((user) => {
+                    console.log('in local login strategy')
+                    console.log(user)
                     if (user) {
                         // Here we use bcrypt to figure out whether the user is logged in or not
                         // bcrypt.compareSync rehashes the password and sees if it matches user.password_digest,

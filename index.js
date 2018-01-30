@@ -12,6 +12,8 @@ const moment = require('moment');
 const app = express();
 const port = process.env.PORT || 3000;
 
+const authObject = require('./services/auth')
+
 // registers the template engine for use in res.render
 app.engine('html', mustacheExpress());
 // sets the file extension to use for views when the file extension is omitted
@@ -32,6 +34,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(authObject.passportInstance);
+app.use(authObject.passportSession);
 
 const mainRouter = require('./controllers/index.js');
 app.use('/', mainRouter);

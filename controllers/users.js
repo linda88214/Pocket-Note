@@ -4,6 +4,7 @@ const passport = require('passport');
 
 // const controller = require('./controller');
 const auth = require('../services/auth');
+const weatherComment = require("../models/weatherComment.js")
 
 // ----------------------------------------
 // users index
@@ -23,7 +24,7 @@ router.post(
         // 'local-signup' back in index.js.
         'local-signup', {
             failureRedirect: '/new',
-            successRedirect: '/weathercomments'
+            successRedirect: '/users/weathercomments'
         }
     )
 );
@@ -55,11 +56,15 @@ router.get('/login', (req, res) => {
 // passport.authenticate will _build_ middleware for us
 // based on the 'local-login' strategy we registered with
 // passport in auth.js
-router.post('/user', passport.authenticate(
+router.post('/login', passport.authenticate(
     'local-login', {
         failureRedirect: '/login',
         successRedirect: '/weathercomments'
     }
 ));
+
+router.get("/weathercomments", weatherComment.allWeatherComment, weatherComment.create, (req, res) => {
+  res.render("lists", {allWeatherComment: res.locals.allWeatherCommentData});
+})
 
 module.exports = router;

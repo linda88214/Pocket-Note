@@ -23,17 +23,15 @@ router.post("/weathercomments/new", weatherComment.create, (req, res) => {
     res.json({ id: res.locals.newWeatherData, body: req.body });
 });
 
-router.get("/weathercomments", weatherComment.allWeatherComment, weatherComment.create, (req, res) => {
+router.get("/weathercomments", weatherComment.allWeatherComment, (req, res) => {
+  // res.json(res.locals.allWeatherCommentData)
+  res.render("lists", {allWeatherComment: res.locals.allWeatherCommentData}
+    );
+})
+
+router.post("/weathercomments", weatherComment.create, weatherComment.allWeatherComment, (req, res) => {
   res.render("lists", {allWeatherComment: res.locals.allWeatherCommentData});
 })
-
-router.post("/weathercomments", weatherComment.create, (req, res) => {
-  res.render("lists");
-})
-
-
-
-
 
 
 module.exports = router;
