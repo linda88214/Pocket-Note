@@ -6,7 +6,7 @@ const morgan = require("morgan");
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const mustacheExpress = require('mustache-express');
-const mainRouter = require('./controllers/index');
+const moment = require('moment');
 // const todosRouter = require('/controllers/todos');
 
 const app = express();
@@ -33,7 +33,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+const mainRouter = require('./controllers/index.js');
 app.use('/', mainRouter);
+
+const usersRouter = require('./controllers/users.js');
+app.use('/users', usersRouter);
 
 // Set up error handling middleware (notice that this is the LAST thing we do)
 app.use((err, req, res, next) => {

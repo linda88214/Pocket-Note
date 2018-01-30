@@ -1,0 +1,266 @@
+@font-face {
+  font-family: KGSecondChancesSketch;
+  src: url(../fonts/kim/KGSecondChancesSketch.ttf);
+}
+
+@font-face {
+  font-family: Rudiment;
+  src: url(../fonts/kevin/Rudiment.ttf);
+}
+
+.clearfix::after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+
+html {
+  background-image: url("./images/background.jpg");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Neucha', cursive;
+  color: white;
+  font-size: 50px;
+  height: 100vh;
+  letter-spacing: 4px;
+  line-height: 60px;
+}
+
+h1 {
+  margin: 25px;
+  font-size: 60px;
+  text-align: center;
+  color: white;
+  letter-spacing: 4px;
+  font-family: KGSecondChancesSketch;
+  font-weight: normal;
+}
+
+ul {
+  margin: 0;
+  padding-left: 50px;
+  height: 100px;
+}
+
+li {
+  list-style: none;
+  float: left;
+  padding: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+}
+
+a:hover {
+  border-bottom: 1px solid white;
+}
+
+/***************************************************************/
+/************************* MAIN PAGE ***************************/
+/************************ SIGNUP PAGE **************************/
+/***************************************************************/
+
+#mainPage form,
+#signupPage form {
+  width: 40%;
+  height: 700px;
+  margin-top: 40px;
+  margin-left: 10%;
+  border: 3px dashed white;
+  border-radius: 30px;
+}
+
+#mainPage h1 {
+  padding-top: 70px;
+}
+
+#signupPage h1 {
+  padding-top: 50px;
+}
+
+#mainPage label,
+#signupPage label {
+  width: 30%;
+  margin-top: 50px;
+  font-size: 40px;
+}
+
+#signupPage label {
+  width: 40%;
+}
+
+#mainPage input {
+  width: 55%;
+}
+
+#signupPage input {
+  width: 48%;
+}
+
+#mainPage button,
+#signupPage button {
+  width: 20%;
+  height: 50px;
+  margin: 80px 0 0 40%;
+  font-weight: bold;
+}
+
+#signupPage button {
+  margin-top: 50px;
+}
+
+input[type=submit] {
+  margin: 100px 0 0 43%;
+  width: 15% !important;
+}
+
+
+/***************************************************************/
+/************************** NEW PAGE ***************************/
+/***************************************************************/
+
+form {
+  width: 60%;
+  position: absolute;
+  left: 20%;
+}
+
+label {
+  display: inline-block;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+}
+
+input {
+  width: 20%;
+  height: 30px;
+  padding: 5px 5px 0 5px;
+  font-size: 25px;
+  border-radius: 10px;
+  font-family: 'Neucha', cursive;
+  letter-spacing: 2px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
+
+button,
+input[type=submit] {
+  width: 10%;
+  height: 40px !important;
+  border-radius: 20px;
+  border-style: none;
+  font-size: 25px;
+  padding-top: 5px;
+  color: #222222;
+  letter-spacing: 2px;
+  font-family: 'Neucha', cursive;
+}
+
+button:hover,
+input[type=submit]:hover {
+  color: #888888;
+  background-color: rgba(0,0,0,0.4);
+}
+
+p {
+  text-align: center;
+  margin: 0;
+}
+
+textarea {
+  width: 70%;
+  margin: 50px 0 0 15%;
+  height: 100px;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  resize: none;
+  border: none;
+  border-radius: 15px;
+  background-image: url("./images/background.jpg");
+}
+
+#result > h1 {
+  font-size: 40px;
+  margin: 10px;
+}
+
+#result > p {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+#submit {
+  width: 300px;
+  margin: 50px 0 50px 35%;
+}
+
+.currentDate {
+  display: inline-block;
+}
+
+
+/***************************************************************/
+/**************************** FOOTER ***************************/
+/***************************************************************/
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  font-size: 25px !important; 
+  font-family: Rudiment;
+}
+
+footer > p {
+  display: flex;
+  display: inline-block;
+  margin: 0 80px;
+  justify-content: space-around;
+}
+
+footer a {
+  font-size: 25px !important;
+  line-height: 25px;
+}
+
+span {
+  font-size: 40px;
+}
+
+
+/***************************************************************/
+/************************ LISTS PAGE ***************************/
+/***************************************************************/
+
+#listsPage div {
+  float: left;
+  width: 30%;
+  margin: 20px;
+}
+
+#listsPage h2 {
+  font-size: 25px;
+}
+
+#listsPage h4 {
+  font-size: 20px;
+}
+
+#listsPage p {
+  font-size: 18px;
+}

@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/users');
 const router = require('express').Router();
 const passport = require('passport');
 
@@ -9,22 +9,21 @@ const auth = require('../services/auth');
 // users index
 
 router.get('/', (req, res, next) => {
-    res.redirect('users/profile');
+    res.redirect('/login');
 });
 
 router.post(
     '/',
     // we want the behavior of the site to vary depending on whether or
-    // not the user is already logged in. If they are logged in, we want
-    // to send them to /users/profile. If they are not, we want to send
-    // them to users/new.
+    // not the user is already logged in. If they are not, we want to send
+    // them to signup Page.
     passport.authenticate(
         // The following string indicates the particular strategy instance
         // we'll want to use to handle signup. We defined behavior for
         // 'local-signup' back in index.js.
         'local-signup', {
-            failureRedirect: '/users/new',
-            successRedirect: '/users/profile'
+            failureRedirect: '/new',
+            successRedirect: '/weathercomments'
         }
     )
 );
@@ -33,7 +32,7 @@ router.post(
 // register new user
 
 router.get('/new', (req, res) => {
-    res.render('users/new');
+    res.render('signup');
 });
 
 // ----------------------------------------
@@ -50,45 +49,17 @@ router.get('/logout', (req, res) => {
 // user login
 
 router.get('/login', (req, res) => {
-    res.render('users/login');
+    res.render('index');
 });
 
 // passport.authenticate will _build_ middleware for us
 // based on the 'local-login' strategy we registered with
 // passport in auth.js
-router.post('/login', passport.authenticate(
+router.post('/user', passport.authenticate(
     'local-login', {
-        failureRedirect: '/users/login',
-        successRedirect: '/users/profile'
+        failureRedirect: '/login',
+        successRedirect: '/weathercomments'
     }
 ));
-
-
-// ----------------------------------------
-// user profile
-
-router.get(
-    '/profile',
-    // Middleware (that we wrote) ensuring that if the user is not
-    // authenticated, he or she will be redirected to the login screen.
-    auth.restrict,
-    User.findByEmailMiddleware,
-    (req, res) => {
-        console.log('in handler for users/profile');
-        console.log('req.user:');
-        console.log(req.user);
-        res.render('users/profile', { user: res.locals.userData });
-    }
-);
-
-router.post(
-    '/counter',
-    auth.restrict,
-    User.incrementUserCounter,
-    (req, res) => {
-        console.log('in post at /counter, req.user: ', req.user);
-        res.json(res.locals.counterData);
-    }
-);
 
 module.exports = router;

@@ -2,9 +2,30 @@
 <html>
 <head>
   <title>POCKET NOTE</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
 </head>
-<body>
-  <h1>Sign Up</h1>
+<body id="signupPage" class="clearfix">
+  <ul>
+    <li><a href="/">Login</a></li>
+  </ul>
   
+  <form action="/users" method="POST">
+    <h1>Sign Up</h1>
+    <label>First Name:</label>
+    <input type="text" name="user[fname]">
+    <label>Email:</label>
+    <input type="email" name="user[email]">
+    <label>Password:</label>
+    <input type="password" name="user[password]">
+    <button id="submit">Submit!</button>
+  </form>
+
+   <footer>
+    <p>Made width <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/">Yerim Hu</a></p>
+    <p><a href="https://generalassemb.ly/">GA</a> WDI Project 2018</p>
+  </footer>
+
 </body>
 </html>

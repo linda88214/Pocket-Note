@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pocket Note</title>
+  <script src="/jquery.js"></script>
+  <script src="/script.js"></script>
+  <script type="/moment.js"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet"> <!--font-->
+</head>
+<body id="newPage" class="clearfix">
+
+  <ul>
+    <li><a href="/weathercomments">Lists</a></li>
+    <li><a href="/">Logout</a></li>
+  </ul>
+
+  <h1>Add New Comment</h1>
+
+  <form action="/weathercomments" method="post">
+      
+      <div class="search-container">
+        <input type="hidden" name="id">
+        <label>Today is:</label>
+        <p class="currentDate"></p>
+        <input type="hidden" name="commentDay" class="currentDate">
+        <label>Zip Code:</label>
+        <input type="number" id="zipcode" name="zipcode">
+        <button id="search">Search</button>
+
+        <div id="result">
+          <input type="hidden" name="weather" value="{{description}}">
+        </div>
+      </div>
+
+      <div class="comment-container">
+        <textarea class="textarea" placeholder="Type comment" name="comment"></textarea>
+      </div>
+
+      <button id="submit">Submit</button>
+  
+  </form>
+
+  <footer>
+    <p>Made width <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/">Yerim Hu</a></p>
+    <p><a href="https://generalassemb.ly/">GA</a> WDI Project 2018</p>
+  </footer>
+</body>
+</html>

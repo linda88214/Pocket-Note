@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/linda88214/Pocket-Note/issues"
   },
-  "homepage": "https://github.com/linda88214/Pocket-Note#readme"
+  "homepage": "https://github.com/linda88214/Pocket-Note#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bcryptjs": "^2.4.3",
+    "moment": "^2.20.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
 }
