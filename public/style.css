@@ -251,7 +251,7 @@ span {
 .lists-container {
   float: left;
   width: 20%;
-  height: 200px;
+  height: auto !important;
   margin-top: 20px;
   margin-left: 2%;
   padding: 20px;
@@ -265,8 +265,8 @@ span {
 .lists-container ul {
   height: 45px;
   position: absolute;
-  right: 30px;
-  bottom: 5px;
+  right: 10px;
+  top: 5px;
 }
 
 .lists-container li {

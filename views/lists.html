@@ -11,7 +11,12 @@
     <li><a href="/weathercomments/new">New</a></li>
     <li><a href="/">Logout</a></li>
   </ul>
-  <h1>Your Lists</h1>
+  <!-- {{#allUsers}}
+  <h1>{{fname}}'s Lists</h1>
+  {{/allUsers}}
+   -->
+
+   <h1>Your Lists</h1>
 
   {{#allWeatherComment}}
   <div class="lists-container">
@@ -20,8 +25,8 @@
     <p>You were in: {{zip}}</p>
     <p>Note: {{comment}}</p>
     <ul>
-      <li><a href="">EDIT</a></li>
-      <li><a href="">DELETE</a></li>
+      <li><a href="/weathercomments/{{id}}">EDIT</a></li>
+      <li><a href="/weathercomments/delete/{{id}}">DELETE</a></li>
     </ul>
   </div>
   {{/allWeatherComment}}

@@ -10,17 +10,17 @@ weatherComment.allWeatherComment = (req, res, next) => {
       next();
     })
     .catch(error => {
-      console.log("error encountered in weatherComment.allUsers. Error:", error);
+      console.log("error encountered in weatherComment.allWeatherComment. Error:", error);
       next(error);
     });
 };
 
 weatherComment.findById = (req, res, next) => {
-  const id = req.params.usersId;
+  const id = req.params.weatherCommentId;
   db
     .one("SELECT * FROM weather WHERE weather.id = ${id}", { id: id })
     .then(data => {
-      res.locals.userData = data;
+      res.locals.weatherCommentData = data;
       next();
     })
     .catch(error => {
@@ -49,5 +49,40 @@ weatherComment.create = (req, res, next) => {
       next(error);
     });
 };
+
+weatherComment.update = (req, res, next) => {
+  db
+    .one(
+      "UPDATE weather SET zip = $1, weather = $2, commentday = $3, comment = $4 WHERE id = $6 RETURNING *;",
+      [
+        req.body.zip,
+        req.body.weather,
+        req.body.commentday,
+        req.body.comment,
+        req.params.id
+      ]
+    )
+    .then(data => {
+      res.locals.updatedWeatherCommentData = data;
+      next();
+    })
+    .catch(error => {
+      console.log("error encountered in weatherComment.update. Error:", error);
+      next(error);
+    });
+};
+
+weatherComment.destroy = (req, res, next) => {
+  db
+    .none("DELETE FROM weather WHERE id = $1", [req.params.id])
+    .then(() => {
+      next();
+    })
+    .catch(error => {
+      console.log("error encountered in weatherComment.destroy. error:", error);
+      next(error);
+    });
+};
+
 
 module.exports = weatherComment;

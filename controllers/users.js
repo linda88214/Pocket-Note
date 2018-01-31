@@ -24,7 +24,7 @@ router.post(
         // 'local-signup' back in index.js.
         'local-signup', {
             failureRedirect: '/new',
-            successRedirect: '/users/weathercomments'
+            successRedirect: '/login'
         }
     )
 );
@@ -63,7 +63,7 @@ router.post('/login', passport.authenticate(
     }
 ));
 
-router.get("/weathercomments", weatherComment.allWeatherComment, weatherComment.create, (req, res) => {
+router.get("/weathercomments", weatherComment.allWeatherComment, (req, res) => {
   res.render("lists", {allWeatherComment: res.locals.allWeatherCommentData});
 })
 

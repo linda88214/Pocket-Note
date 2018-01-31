@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>POCKET NOTE</title>
+  <script src="/jquery.js"></script>
+  <script src="/script.js"></script>
+  <script type="/moment.js"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+</head>
+<body id="editPage" class="clearfix">
+  <ul>
+    <li><a href="/weathercomments">Lists</a></li>
+  </ul>
+
+  <form action="/weathercomments/:weatherCommentId" method="PUT">
+    <h1>EDIT</h1>
+    
+    <label for="date">Date: </label>
+    <input type="text" id="date" name="commentday">
+
+    <label for="zip">Zip Code:</label>
+    <input id="zip" type="number" name="zip">
+
+    <label for="weather">Weather:</label>
+    <input type="text" name="weather">
+    <input type="submit" value="EDIT">
+  </form>
+
+
+  <footer>
+    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/">Yerim Hu</a></p>
+    <p><a href="https://generalassemb.ly/">GA</a> WDI Fullstack Project 2018</p>
+  </footer>
+</body>
+</html>

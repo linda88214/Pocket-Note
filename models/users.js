@@ -56,4 +56,17 @@ userModelObject.incrementUserCounter = function incrementUserCounter(req, res, n
     }).catch(err => console.log('ERROR:', err));
 };
 
+userModelObject.allUsers = (req, res, next) => {
+  db
+    .manyOrNone("SELECT * FROM users")
+    .then(data => {
+      res.locals.allUsersData = data;
+      next();
+    })
+    .catch(error => {
+      console.log("error encountered in userModelObject.allUsers. Error:", error);
+      next(error);
+    });
+};
+
 module.exports = userModelObject;
