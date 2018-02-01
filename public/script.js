@@ -1,7 +1,11 @@
 $(function(){
 
   const date = new Date();
-  const current = $('.currentDate').text(date.toDateString());
+  $('.currentDate').text(date.toDateString());
+
+  const $dateP = $('<p>', {class: 'date'});
+  $dateP.text(date.toDateString());
+  $('#listsPage').append($dateP)
 
   $('#search').on('click', function(event){
     event.preventDefault();
@@ -29,12 +33,13 @@ $(function(){
     appendToDom(city, currentTemp, description, minTemp, maxTemp)
   }
 
+
+// New Comment Page, inserting current weather 
   function appendToDom(city, currentTemp, description, minTemp, maxTemp){
     var $result = $('#result');
     var $city = $('<h1>').text('Weather for ' + city);
     var $currentTemp = $('<p>').text('Current temperature is: ' + Math.round(currentTemp) + '\xB0');
     var $description = $('<p>', {class: 'weather'}).text(description.toUpperCase());
-    var $weather = $('.weather')
     console.log(description)
     var $date = $('<input>').attr({type: 'hidden', name: 'commentday', value: date.toDateString()})
 

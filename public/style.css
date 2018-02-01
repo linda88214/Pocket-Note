@@ -327,3 +327,10 @@ span {
   font-size: 20px;
   font-weight: bold;
 }
+
+#listsPage .date {
+  position: absolute;
+  top: 30px;
+  right: 50px; 
+  font-size: 30px;
+}

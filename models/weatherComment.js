@@ -15,6 +15,23 @@ weatherComment.allWeatherComment = (req, res, next) => {
     });
 };
 
+weatherComment.findByUser = (req, res, next) => {
+  console.log("in weatherComment.findByUser, req.user:", req.user);
+  db
+    .manyOrNone("SELECT * FROM weather WHERE users_id = $1;", [req.user.id])
+    .then(result => {
+      res.locals.userCommentData = result;
+      next();
+    })
+    .catch(err => {
+      console.log(
+        "error encountered in weatherComment.findByUser, error:",
+        err
+      );
+      next(err);
+    });
+};
+
 weatherComment.findById = (req, res, next) => {
   const id = req.params.weatherCommentId;
   db
@@ -33,8 +50,9 @@ weatherComment.create = (req, res, next) => {
 console.log(req.body)
   db
     .one(
-      "INSERT INTO weather (zip, weather, commentday, comment) VALUES ($1, $2, $3, $4) RETURNING id;",
+      "INSERT INTO weather (users_id, zip, weather, commentday, comment) VALUES ($1, $2, $3, $4, $5) RETURNING id;",
       [
+        req.body.users_id,
         req.body.zip,
         req.body.weather,
         req.body.commentday,

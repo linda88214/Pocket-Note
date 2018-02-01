@@ -45,9 +45,10 @@ router.get('/logout', (req, res) => {
 });
 
 
-router.get("/weathercomments/new", (req, res) => {
+router.get("/weathercomments/new", users.findByEmailMiddleware, (req, res) => {
   // console.log("hi")
-  res.render("new");
+  // res.json(res.locals.userData);
+  res.render("new", {userData: res.locals.userData});
 });
 
 

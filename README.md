@@ -1,82 +1,51 @@
 # Pocket Note
 
-#### Wireframes: 
-Trying it on my own notebook
+### A. What is this app about? 
 
-#### User stories that describe how your app will be used:
-Modern people are increasingly using cell phones rather than notebooks and pencils. People are playing games, read books, listen to songs and take notes on smartphones. On my app call "Pocket Note",  users can check the current weather in the app, create a to do list, and take note. And all that data can be saved and the user can check when the user wants to open it later.
+Modern people are increasingly using cell phones rather than notebooks and pencils. People are playing games, read books, listen to songs and take notes on smartphones. On my app call "Pocket Note",  users can check the current weather in the app and take note. And all that data can be saved and the user can check when the user wants to open it later.
 A user must sign in to run the app since the notes are only for that specified user. 
-When the user is not signed in, they only can check today's weather on the login page. 
+
+### B. What features does it include? 
 
 ##### Login Page 
 - user ID input
 - user Password input
 - login button
 - sign up button
-- Today's Date
-- Today's Weather
 
 ##### Sign up Page 
 - user First Name input
-- user Last Name input
 - user email address input
-- user ID input
 - user password input
 - submit button
 
 ##### Main Page 
 - Today's Date
 - Today's Weather
-- List of todos
 - List of Notes
 - create new button
 
 ##### Create New Page 
-- Today's Date Input
+- Today's Date 
 - Today's Weather city input
-- Start Button
+- Weather result 
+- Text area
+- Submit Button
 
-##### Todo List Page 
-- Todo Date
-- Todo Weather
-- Todo List
-- new todo list input
-- Add button
-- check mark input for each todo list
-- Note area
-- Save Button
+### C. Were there any particular pain points or unsolved problems you had to manage? (e.g. technological, timing, content, etc.)
 
-##### Priority
-1. Weather 
-2. Todo List
-3. Note
+###### Unsolved problems 
 
-###### Friday:
-- Proposal
-- Wireframe 
-- API search 
-- Setup basic structure
-- Start with making directories and files 
-- Require all npm packages 
+1. 
 
-###### Saturday-Sunday:
-- Work on routes, models etc
+###### Pain Points 
 
-###### Monday:
-- Start styling 
+1. 
 
-###### Tuesday:
-- Finalize Readme
-- Make Presentation Document
+### D. Reason for building this app 
 
-###### Wednesday: 
-- Presentaion
 
-#### For Weather API: 
-* [Open Weather Map](http://openweathermap.org/current)
-* api.openweathermap.org/data/2.5/weather?q={city name}
-
-#### NPM Packages -
+### E. NPM Packages used
 [Morgan](https://www.npmjs.com/package/morgan)
 [Express](https://www.npmjs.com/package/express)
 [Mustache-Express](https://www.npmjs.com/package/mustache-express)
@@ -87,5 +56,5 @@ When the user is not signed in, they only can check today's weather on the login
 [Moment.js](https://www.npmjs.com/package/moment)
 
 
-#### Technology I intend to use - 
-HTML, CSS, JavaScript, jQuery, Node.js, SQL, Ajax/Axios, Pg-promise, Express, Mustache 
+### F. Technology I intend to use - 
+HTML, CSS, JavaScript, jQuery, Node.js, PSQL, Ajax/Axios, Pg-promise, Express, Mustache 

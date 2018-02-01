@@ -22,6 +22,9 @@
     <h4>ZipCode: {{zip}}</h4>
     <h4>It was: {{weather}}</h4>
     <p><span>Note:</span> {{comment}}</p>
+    {{#usersComment}}
+    <input type="hidden" value="{{id}}">
+    {{/usersComment}}
     <ul>
       <li><a href="/weathercomments/{{id}}">EDIT</a></li>
       <li><button class="delete" data="{{id}}">DELETE</button></li>

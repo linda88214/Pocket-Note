@@ -55,7 +55,7 @@ users.findByEmail = function findByEmail(email) {
 
 users.findByEmailMiddleware = function findByEmailMiddleware(req, res, next) {
     console.log('in findByEmailMiddleware');
-    const email = req.users.email;
+    const email = req.user.email;
     users
         .findByEmail(email) // here we're using the nonmiddleware version above, getting back a promise
         .then((userData) => {
