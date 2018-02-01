@@ -18,16 +18,14 @@
   <h1>Add New Comment</h1>
 
   <form action="/weathercomments" method="post">
-      
       <div class="search-container">
         <label>Today is:</label>
-        <p class="currentDate" name="commentday"><input type="hidden" name="commentday"></p>
+        <p class="currentDate" name="commentday"></p>
         <label>Zip Code:</label>
         <input type="number" id="zipcode" name="zip">
         <button id="search">Search</button>
 
         <div id="result">
-          <input type="hidden" name="weather" value="{{description}}">
         </div>
       </div>
 
@@ -36,12 +34,11 @@
       </div>
 
       <button id="submit">Submit</button>
-  
   </form>
 
   <footer>
-    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/">Yerim Hu</a></p>
-    <p><a href="https://generalassemb.ly/">GA</a> WDI Fullstack Project 2018</p>
+    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/" target="_blank">Yerim Hu</a></p>
+    <p><a href="https://generalassemb.ly/" target="_blank">GA</a> WDI Fullstack Project 2018</p>
   </footer>
 </body>
 </html>

@@ -9,8 +9,12 @@ const mustacheExpress = require('mustache-express');
 const moment = require('moment');
 // const todosRouter = require('/controllers/todos');
 
+const dotenv = require('dotenv').config();
+
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
+
+console.log('process.env.Yerim_Hu:', process.env.Yerim_Hu)
 
 const authObject = require('./services/auth')
 
@@ -39,9 +43,7 @@ app.use(authObject.passportSession);
 
 const mainRouter = require('./controllers/index.js');
 app.use('/', mainRouter);
-
-const usersRouter = require('./controllers/users.js');
-app.use('/users', usersRouter);
+app.use('/users', mainRouter);
 
 // Set up error handling middleware (notice that this is the LAST thing we do)
 app.use((err, req, res, next) => {

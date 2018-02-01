@@ -30,6 +30,7 @@ weatherComment.findById = (req, res, next) => {
 };
 
 weatherComment.create = (req, res, next) => {
+console.log(req.body)
   db
     .one(
       "INSERT INTO weather (zip, weather, commentday, comment) VALUES ($1, $2, $3, $4) RETURNING id;",
@@ -51,15 +52,18 @@ weatherComment.create = (req, res, next) => {
 };
 
 weatherComment.update = (req, res, next) => {
+  // console.log("-------------------------")
+  // console.log("in weatherComment.update. req.body: ", req.body);
+  const commentId = req.params.weatherCommentId;
   db
     .one(
-      "UPDATE weather SET zip = $1, weather = $2, commentday = $3, comment = $4 WHERE id = $6 RETURNING *;",
+      "UPDATE weather SET zip = $1, weather = $2, commentday = $3, comment = $4 WHERE id = $5 RETURNING *;",
       [
         req.body.zip,
         req.body.weather,
         req.body.commentday,
         req.body.comment,
-        req.params.id
+        commentId
       ]
     )
     .then(data => {
@@ -73,6 +77,7 @@ weatherComment.update = (req, res, next) => {
 };
 
 weatherComment.destroy = (req, res, next) => {
+  console.log(req.params.id)
   db
     .none("DELETE FROM weather WHERE id = $1", [req.params.id])
     .then(() => {

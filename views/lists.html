@@ -3,6 +3,8 @@
 <head>
   <title>POCKET NOTE</title>
   <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="/jquery.js"></script>
+  <script src="/script.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
 </head>
@@ -11,29 +13,25 @@
     <li><a href="/weathercomments/new">New</a></li>
     <li><a href="/">Logout</a></li>
   </ul>
-  <!-- {{#allUsers}}
-  <h1>{{fname}}'s Lists</h1>
-  {{/allUsers}}
-   -->
 
    <h1>Your Lists</h1>
 
   {{#allWeatherComment}}
   <div class="lists-container">
-    <h2>Date: {{commentday}}</h2>
+    <h2>{{commentday}}</h2>
+    <h4>ZipCode: {{zip}}</h4>
     <h4>It was: {{weather}}</h4>
-    <p>You were in: {{zip}}</p>
-    <p>Note: {{comment}}</p>
+    <p><span>Note:</span> {{comment}}</p>
     <ul>
       <li><a href="/weathercomments/{{id}}">EDIT</a></li>
-      <li><a href="/weathercomments/delete/{{id}}">DELETE</a></li>
+      <li><button class="delete" data="{{id}}">DELETE</button></li>
     </ul>
   </div>
   {{/allWeatherComment}}
 
   <footer>
-    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/">Yerim Hu</a></p>
-    <p><a href="https://generalassemb.ly/">GA</a> WDI Fullstack Project 2018</p>
+    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/" target="_blank">Yerim Hu</a></p>
+    <p><a href="https://generalassemb.ly/" target="_blank">GA</a> WDI Fullstack Project 2018</p>
   </footer>
 </body>
 </html>

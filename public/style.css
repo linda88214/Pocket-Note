@@ -204,7 +204,7 @@ textarea {
   line-height: 40px;
 }
 
-#submit {
+#newPage #submit {
   width: 300px;
   margin: 50px 0 50px 35%;
 }
@@ -251,7 +251,7 @@ span {
 .lists-container {
   float: left;
   width: 20%;
-  height: auto !important;
+  height: 200px !important;
   margin-top: 20px;
   margin-left: 2%;
   padding: 20px;
@@ -260,6 +260,7 @@ span {
   border-bottom: none !important;
   line-height: 20px;
   position: relative;
+  text-align: center;
 }
 
 .lists-container ul {
@@ -278,16 +279,51 @@ span {
   font-family: Rudiment;
 }
 
+.lists-container a:hover {
+  border-bottom: 0px;
+  font-weight: bold;
+}
+
+.delete {
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 15px;
+  font-family: Rudiment;
+  background-color: transparent;
+  color: white;
+  padding: 0;
+  display: inline-block;
+  letter-spacing: 4px;
+}
+
+.delete:hover {
+  background-color: transparent;
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+}
+
+.delete:focus {
+  outline: none;
+}
+
 #listsPage h2 {
   font-size: 25px;
-  margin: 20px;
+  margin: 10px;
+  margin-top: 40px;
 }
 
 #listsPage h4 {
   font-size: 20px;
-  margin: 20px;
+  margin: 10px;
 }
 
 #listsPage p {
   font-size: 18px;
+  word-wrap: break-word;
+}
+
+#listsPage p > span {
+  font-size: 20px;
+  font-weight: bold;
 }

@@ -13,24 +13,27 @@
     <li><a href="/weathercomments">Lists</a></li>
   </ul>
 
-  <form action="/weathercomments/:weatherCommentId" method="PUT">
+  {{#editcomment}}
+  <form id="edit-form" action="/weathercomments/{{id}}">
     <h1>EDIT</h1>
-    
     <label for="date">Date: </label>
-    <input type="text" id="date" name="commentday">
+    <input type="text" style="display: none;" value="{{id}}" name="id" id="id">
+    <input type="text" id="date" name="commentday" value="{{commentday}}">
 
     <label for="zip">Zip Code:</label>
-    <input id="zip" type="number" name="zip">
+    <input id="zip" type="number" name="zip" value="{{zip}}">
 
     <label for="weather">Weather:</label>
-    <input type="text" name="weather">
+    <input type="text" name="weather" value="{{weather}}">
+    <textarea name="comment">{{comment}}</textarea>
     <input type="submit" value="EDIT">
+    {{/editcomment}}
   </form>
 
 
   <footer>
-    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/">Yerim Hu</a></p>
-    <p><a href="https://generalassemb.ly/">GA</a> WDI Fullstack Project 2018</p>
+    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/" target="_blank">Yerim Hu</a></p>
+    <p><a href="https://generalassemb.ly/" target="_blank">GA</a> WDI Fullstack Project 2018</p>
   </footer>
 </body>
 </html>

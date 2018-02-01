@@ -1,11 +1,9 @@
 const bcrypt = require('bcryptjs');
-
 const db = require('../db/index.js');
-
-const userModelObject = {};
+const users = {};
 
 // Note that this is NOT middleware!
-userModelObject.create = function create(user) {
+users.create = function create(user) {
     // This is where we obtain the hash of the user's password.
     const passwordDigest = bcrypt.hashSync(user.password, 1);
     // Generally we try to avoid passing promises around, but here 
@@ -23,40 +21,8 @@ userModelObject.create = function create(user) {
     );
 };
 
-// Here's a tricky part.
-// We need both a middleware _and_ a nonmiddleware version 
-// (nonmiddleware for use in services/auth.js).
 
-// Again, LocalStrategy's interface means it's easiest to return a promise here.
-userModelObject.findByEmail = function findByEmail(email) {
-    return db.oneOrNone('SELECT * FROM users WHERE email = $1;', [email]);
-};
-
-userModelObject.findByEmailMiddleware = function findByEmailMiddleware(req, res, next) {
-    console.log('in findByEmailMiddleware');
-    const email = req.user.email;
-    userModelObject
-        .findByEmail(email) // here we're using the nonmiddleware version above, getting back a promise
-        .then((userData) => {
-            res.locals.userData = userData;
-            next();
-        }).catch(err => console.log('ERROR:', err));
-};
-
-// This section just demonstrates that we can build middleware for the user model 
-// and talk to the database as usual. 
-// Note that we now have access to req.user for user information, thanks to passport.
-userModelObject.incrementUserCounter = function incrementUserCounter(req, res, next) {
-    // get the user counter number
-    db.one(
-        'UPDATE users SET counter = counter + 1 WHERE email = $1 RETURNING counter', [req.user.email]
-    ).then((counterData) => {
-        res.locals.counterData = counterData;
-        next();
-    }).catch(err => console.log('ERROR:', err));
-};
-
-userModelObject.allUsers = (req, res, next) => {
+users.allUsers = (req, res, next) => {
   db
     .manyOrNone("SELECT * FROM users")
     .then(data => {
@@ -64,9 +30,38 @@ userModelObject.allUsers = (req, res, next) => {
       next();
     })
     .catch(error => {
-      console.log("error encountered in userModelObject.allUsers. Error:", error);
+      console.log("error encountered in users.allUsers. Error:", error);
       next(error);
     });
 };
 
-module.exports = userModelObject;
+users.findById = (req, res, next) => {
+  const id = req.params.userId;
+  db
+    .one("SELECT * FROM users WHERE users.id = ${id}", { id: id })
+    .then(data => {
+      res.locals.userIdData = data;
+      next();
+    })
+    .catch(error => {
+      console.log("error encountered in users.findById. Error:", error);
+      next(error);
+    });
+};
+
+users.findByEmail = function findByEmail(email) {
+    return db.oneOrNone('SELECT * FROM users WHERE email = $1;', [email]);
+};
+
+users.findByEmailMiddleware = function findByEmailMiddleware(req, res, next) {
+    console.log('in findByEmailMiddleware');
+    const email = req.users.email;
+    users
+        .findByEmail(email) // here we're using the nonmiddleware version above, getting back a promise
+        .then((userData) => {
+            res.locals.userData = userData;
+            next();
+        }).catch(err => console.log('ERROR:', err));
+};
+
+module.exports = users;
