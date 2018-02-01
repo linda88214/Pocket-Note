@@ -8,22 +8,25 @@ A user must sign in to run the app since the notes are only for that specified u
 ### B. What features does it include? 
 
 ##### Login Page 
-- user ID input
-- user Password input
-- login button
-- sign up button
+- User ID input
+- User Password input
+- Login button
+- Sign up button
 
 ##### Sign up Page 
-- user First Name input
-- user email address input
-- user password input
-- submit button
+- User First Name input
+- User email address input
+- User password input
+- Submit button
+- Back to login button 
 
 ##### Main Page 
 - Today's Date
-- Today's Weather
 - List of Notes
+- Edit button 
+- Delete button with alert to confirm 
 - create new button
+- log out button
 
 ##### Create New Page 
 - Today's Date 
