@@ -37,6 +37,6 @@
     "mustache": "^2.3.0",
     "mustache-express": "^1.2.5",
     "pg-promise": "^7.4.0"
-  },
+  }
 
 }
