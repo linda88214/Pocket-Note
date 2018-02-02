@@ -9,7 +9,7 @@ const mustacheExpress = require('mustache-express');
 const dotenv = require('dotenv').config();
 const authObject = require('./services/auth')
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
