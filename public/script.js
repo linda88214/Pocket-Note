@@ -1,11 +1,7 @@
 $(function(){
 
   const date = new Date();
-  $('.currentDate').text(date.toDateString());
-
-  const $dateP = $('<p>', {class: 'date'});
-  $dateP.text(date.toDateString());
-  $('#listsPage').append($dateP)
+  // $('.currentDate').text(date.toDateString());
 
   $('#search').on('click', function(event){
     event.preventDefault();
@@ -90,7 +86,7 @@ $(function(){
     }
   });
 
-}); // ends doc.ready
+});
 
 
 

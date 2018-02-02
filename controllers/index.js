@@ -3,6 +3,7 @@ const passport = require("passport");
 const auth = require("../services/auth");
 const weatherComment = require("../models/weatherComment.js");
 const users = require("../models/users.js");
+var moment = require("moment")
 
 
 router.get('/', (req, res, next) => {
@@ -38,23 +39,22 @@ router.get("/new", (req, res) => {
 
 
 router.get('/logout', (req, res) => {
-    // passport put this method on req for us
     req.logout();
-    // redirect back to index page
     res.redirect('/');
 });
 
 
-router.get("/weathercomments/new", users.findByEmailMiddleware, (req, res) => {
-  // console.log("hi")
+router.get("/weathercomments/new", auth.restrict, users.findByEmailMiddleware, (req, res) => {
   // res.json(res.locals.userData);
-  res.render("new", {userData: res.locals.userData});
+  const date = moment().format("ddd MMM D YYYY");
+  res.render("new", {userData: res.locals.userData, time: date});
 });
 
 
-router.get("/weathercomments", weatherComment.allWeatherComment, (req, res) => {
+router.get("/weathercomments",auth.restrict, weatherComment.findByUser, users.findByEmailMiddleware, (req, res) => {
   // res.json(res.locals.allWeatherCommentData)
-  res.render("lists", {allWeatherComment: res.locals.allWeatherCommentData}
+  const date = moment().format("ddd MMM D YYYY");
+  res.render("lists", {allWeatherComment: res.locals.userCommentData, user: res.locals.userData, time: date}
     );
 })
 
@@ -65,20 +65,20 @@ router.post("/weathercomments", weatherComment.create, weatherComment.allWeather
 
 
 router.get("/weathercomments/:weatherCommentId", weatherComment.findById, (req, res, next) => {
-  console.log("+++++++++++++++", res.locals.weatherCommentData)
-    res.render("edit", {editcomment: res.locals.weatherCommentData});
+  // console.log("+++++++++++++++", res.locals.weatherCommentData)
+  res.render("edit", {editcomment: res.locals.weatherCommentData});
 });
 
 
 router.put("/weathercomments/:weatherCommentId", weatherComment.update, (req, res, next) => {
-    console.log('PUT REQUEST')
-    res.send(res.locals.updatedWeatherCommentData);
+  // console.log('PUT REQUEST')
+  res.send(res.locals.updatedWeatherCommentData);
 });
 
 
 router.delete("/weathercomments/:id", weatherComment.destroy, (req, res, next) => {
-  console.log('yo')
-    res.json({ id: req.params.id });
+  // console.log('yo')
+  res.json({ id: req.params.id });
 });
 
 module.exports = router;

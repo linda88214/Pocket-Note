@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Pocket Note</title>
-  <script src="/jquery.js"></script>
-  <script src="/script.js"></script>
-  <script type="/moment.js"></script>
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet"> <!--font-->
-</head>
-<body id="newPage" class="clearfix">
+  <head>
+    <title>POCKET NOTE</title>
+    <script src="/jquery.js"></script>
+    <script src="/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+  </head>
 
-  <ul>
-    <li><a href="/weathercomments">Lists</a></li>
-    <li><a href="/">Logout</a></li>
-  </ul>
+  <body id="newPage" class="clearfix">
+    <ul>
+      <li><a href="/weathercomments">Lists</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
 
-  <h1>Add New Comment</h1>
-
-  {{#userData}}
-  <form action="/weathercomments" method="post">
-    <input type="hidden" name="users_id" value="{{id}}">
-  {{/userData}}
-    <div class="search-container">
-      <label>Today is:</label>
-      <p class="currentDate" name="commentday"></p>
-      <label>Zip Code:</label>
-      <input type="number" id="zipcode" name="zip">
-      <button id="search">Search</button>
-
-      <div id="result">
+    {{#userData}}
+    <h1>{{fname}}, add new comment</h1>
+    
+    <form action="/weathercomments" method="post">
+      <input type="hidden" name="users_id" value="{{id}}">
+      {{/userData}}
+      <div class="search-container">
+        <label>Today is:</label>
+        <p class="currentDate">{{time}}</p>
+        <label>Zip Code:</label>
+        <input type="number" id="zipcode" name="zip">
+        <button id="search">Search</button>
+        <div id="result"></div>
       </div>
-    </div>
+      <div class="comment-container">
+        <textarea class="textarea" placeholder="Type comment" name="comment"></textarea>
+      </div>
+      <button id="submit">Submit</button>
+    </form>
 
-    <div class="comment-container">
-      <textarea class="textarea" placeholder="Type comment" name="comment"></textarea>
-    </div>
-
-    <button id="submit">Submit</button>
-  </form>
-
-  <footer>
-    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/" target="_blank">Yerim Hu</a></p>
-    <p><a href="https://generalassemb.ly/" target="_blank">GA</a> WDI Fullstack Project 2018</p>
-  </footer>
-</body>
+    <footer>
+      <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/" target="_blank">Yerim Hu</a></p>
+      <p><a href="https://generalassemb.ly/" target="_blank">GA</a> WDI Fullstack Project 2018</p>
+    </footer>
+  </body>
 </html>

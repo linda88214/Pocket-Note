@@ -37,15 +37,13 @@ A user must sign in to run the app since the notes are only for that specified u
 
 ### C. Were there any particular pain points or unsolved problems you had to manage? (e.g. technological, timing, content, etc.)
 
-###### Unsolved problems 
-
-1. 
-
 ###### Pain Points 
 
 1. 
 
 ### D. Reason for building this app 
+
+
 
 
 ### E. NPM Packages used

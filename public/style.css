@@ -17,6 +17,7 @@
 html {
   background-image: url("./images/background.jpg");
   background-size: 100% 100%;
+  background-position: fixed;
 }
 
 body {
@@ -30,6 +31,11 @@ body {
   line-height: 60px;
 }
 
+img {
+  background-size: cover;
+  position: fixed;
+}
+
 h1 {
   margin: 25px;
   font-size: 60px;
@@ -38,6 +44,7 @@ h1 {
   letter-spacing: 4px;
   font-family: KGSecondChancesSketch;
   font-weight: normal;
+  text-shadow: 0 0 33px rgba(0,0,0,0.9);
 }
 
 ul {
@@ -215,36 +222,6 @@ textarea {
 
 
 /***************************************************************/
-/**************************** FOOTER ***************************/
-/***************************************************************/
-
-footer {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  font-size: 25px !important; 
-  font-family: Rudiment;
-}
-
-footer > p {
-  display: flex;
-  display: inline-block;
-  margin: 0 80px;
-  justify-content: space-around;
-}
-
-footer a {
-  font-size: 25px !important;
-  line-height: 25px;
-}
-
-span {
-  font-size: 40px;
-}
-
-
-/***************************************************************/
 /************************ LISTS PAGE ***************************/
 /***************************************************************/
 
@@ -333,4 +310,34 @@ span {
   top: 30px;
   right: 50px; 
   font-size: 30px;
+}
+
+
+/***************************************************************/
+/**************************** FOOTER ***************************/
+/***************************************************************/
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  font-size: 25px !important; 
+  font-family: Rudiment;
+}
+
+footer > p {
+  display: flex;
+  display: inline-block;
+  margin: 0 80px;
+  justify-content: space-around;
+}
+
+footer a {
+  font-size: 25px !important;
+  line-height: 25px;
+}
+
+span {
+  font-size: 40px;
 }

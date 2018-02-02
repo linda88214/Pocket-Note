@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>POCKET NOTE</title>
-  <script src="/jquery.js"></script>
-  <script src="/script.js"></script>
-  <script type="/moment.js"></script>
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
-</head>
-<body id="editPage" class="clearfix">
-  <ul>
-    <li><a href="/weathercomments">Lists</a></li>
-  </ul>
+  <head>
+    <title>POCKET NOTE</title>
+    <script src="/jquery.js"></script>
+    <script src="/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+  </head>
+  <body id="editPage" class="clearfix">
+    <ul>
+      <li><a href="/weathercomments">Lists</a></li>
+    </ul>
 
-  {{#editcomment}}
-  <form id="edit-form" action="/weathercomments/{{id}}">
-    <h1>EDIT</h1>
-    <label for="date">Date: </label>
-    <input type="text" style="display: none;" value="{{id}}" name="id" id="id">
-    <input type="text" id="date" name="commentday" value="{{commentday}}">
+    {{#editcomment}}
+    <form id="edit-form" action="/weathercomments/{{id}}">
+      <h1>EDIT</h1>
+      <label for="date">Date: </label>
+      <input type="text" style="display: none;" value="{{id}}" name="id" id="id">
+      <input type="text" id="date" name="commentday" value="{{commentday}}">
 
-    <label for="zip">Zip Code:</label>
-    <input id="zip" type="number" name="zip" value="{{zip}}">
+      <label for="zip">Zip Code:</label>
+      <input id="zip" type="number" name="zip" value="{{zip}}">
 
-    <label for="weather">Weather:</label>
-    <input type="text" name="weather" value="{{weather}}">
-    <textarea name="comment">{{comment}}</textarea>
-    <input type="submit" value="EDIT">
-    {{/editcomment}}
-  </form>
+      <label for="weather">Weather:</label>
+      <input type="text" name="weather" value="{{weather}}">
+      
+      <textarea name="comment">{{comment}}</textarea>
+      <input type="submit" value="EDIT">
+      {{/editcomment}}
+    </form>
 
-
-  <footer>
-    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/" target="_blank">Yerim Hu</a></p>
-    <p><a href="https://generalassemb.ly/" target="_blank">GA</a> WDI Fullstack Project 2018</p>
-  </footer>
-</body>
+    <footer>
+      <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/" target="_blank">Yerim Hu</a></p>
+      <p><a href="https://generalassemb.ly/" target="_blank">GA</a> WDI Fullstack Project 2018</p>
+    </footer>
+  </body>
 </html>

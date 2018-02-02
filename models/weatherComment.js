@@ -16,7 +16,7 @@ weatherComment.allWeatherComment = (req, res, next) => {
 };
 
 weatherComment.findByUser = (req, res, next) => {
-  console.log("in weatherComment.findByUser, req.user:", req.user);
+  // console.log("in weatherComment.findByUser, req.user:", req.user);
   db
     .manyOrNone("SELECT * FROM weather WHERE users_id = $1;", [req.user.id])
     .then(result => {
@@ -47,7 +47,7 @@ weatherComment.findById = (req, res, next) => {
 };
 
 weatherComment.create = (req, res, next) => {
-console.log(req.body)
+// console.log(req.body)
   db
     .one(
       "INSERT INTO weather (users_id, zip, weather, commentday, comment) VALUES ($1, $2, $3, $4, $5) RETURNING id;",
@@ -95,7 +95,7 @@ weatherComment.update = (req, res, next) => {
 };
 
 weatherComment.destroy = (req, res, next) => {
-  console.log(req.params.id)
+  // console.log(req.params.id)
   db
     .none("DELETE FROM weather WHERE id = $1", [req.params.id])
     .then(() => {

@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>POCKET NOTE</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <head>
+    <title>POCKET NOTE</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+  </head>
+  <body id="mainPage" class="clearfix">
+    <ul>
+      <li><a href="./new">Sign Up</a></li>
+    </ul>
 
-  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
-</head>
-<body id="mainPage" class="clearfix">
-  <ul>
-    <li><a href="./new">Sign Up</a></li>
-  </ul>
+    <form action="/users/login" method="POST">
+      <h1>WELCOME</h1>
+      <label for="email">Email</label>
+      <input id="email" type="text" name="user[email]" placeholder="john.doe@example.com"><br>
+      <label for="password">Password</label>
+      <input id="password" type="password" name="user[password]" placeholder="P4ssw0rd1234"><br>
+      <input type="submit" value="Login">
+    </form>
 
-  <form action="/users/login" method="POST">
-    <h1>WELCOME</h1>
-    <label for="email">Email</label>
-    <input id="email" type="text" name="user[email]" placeholder="john.doe@example.com"><br>
-    <label for="password">Password</label>
-    <input id="password" type="password" name="user[password]" placeholder="P4ssw0rd1234"><br>
-    <input type="submit" value="Login">
-  </form>
-
-
-  <footer>
-    <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/" target="_blank">Yerim Hu</a></p>
-    <p><a href="https://generalassemb.ly/" target="_blank">GA</a> WDI Fullstack Project 2018</p>
-  </footer>
-</body>
+    <footer>
+      <p>Made with <span>&hearts;</span> by <a href="http://yerimhu.bitballoon.com/" target="_blank">Yerim Hu</a></p>
+      <p><a href="https://generalassemb.ly/" target="_blank">GA</a> WDI Fullstack Project 2018</p>
+    </footer>
+  </body>
 </html>
