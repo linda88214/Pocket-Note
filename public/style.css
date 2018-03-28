@@ -238,6 +238,12 @@ textarea {
   line-height: 20px;
   position: relative;
   text-align: center;
+  overflow-y: scroll; 
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .lists-container ul {
